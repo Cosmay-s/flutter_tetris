@@ -51,31 +51,26 @@ class Board {
     var y = currentBlock.y;
 
     switch (key) {
-      case 119: // W - поворот блока
+      case 119: 
         rotateBlock();
-        break;
-      case 97: // A - движение влево
+      case 97: 
         if (!isFilledBlock(x - 1, y)) {
           moveBlock(x - 1, y);
         }
-        break;
-      case 115: // S - движение вниз
+      case 115:
         if (!isFilledBlock(x, y + 1)) {
           moveBlock(x, y + 1);
         }
-        break;
-      case 100: // D - движение вправо
+      case 100: 
         if (!isFilledBlock(x + 1, y)) {
           moveBlock(x + 1, y);
         }
-        break;
-      default:
-        // Ничего не делаем для остальных клавиш
-        break;
     }
+
+    updateBlock(currentBlock);
   }
 
-  /// Копирует текущее состояние доски в копию
+
   void savePresentBoardToCpy() {
     for (int i = 0; i < heightBoard; i++) {
       for (int j = 0; j < widthBoard; j++) {
